@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../app.css";
 import { useNavigate } from "react-router-dom";
 const Fetch = () => {
   const [data, setData] = useState();
