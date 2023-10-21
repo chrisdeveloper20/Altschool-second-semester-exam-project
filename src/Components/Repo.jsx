@@ -5,6 +5,7 @@ const Repo = () => {
   const [repo, setRepo] = useState();
   let location = useLocation();
   let data = location.pathname.slice(7);
+  console.log( location.pathname);
   useEffect(() => {
     fetch(`https:api.github.com/repos/amarachi-nwokocha/${data}`)
       .then((res) => res.json())
@@ -13,6 +14,7 @@ const Repo = () => {
   }, [data]);
   console.log(repo);
   console.log(data);
+  
   return (
     <div className="p-10 ">
       <Link to="/" className="md:ml-8 card-btn rounded-sm p-2 text-white bg-blue-300 ">
