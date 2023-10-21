@@ -6,11 +6,19 @@ const Repo = () => {
   let location = useLocation();
   let data = location.pathname.slice(7);
   useEffect(() => {
-    fetch(`https:api.github.com/repos/amarachi-nwokocha/${data}`)
-      .then((res) => res.json())
-      .then((res) => setRepo(res))
-      .catch((err) => console.log("Error", err));
-  }, [data]);
+        fetch(`https://api.github.com/repos/amarachi-nwokocha/${data}`)
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error(`Failed to fetch data: ${res.status}`);
+            }
+            return res.json();
+          })
+          .then((res) => {
+            console.log("GitHub API response:", res); // Log for debugging
+            setRepo(res);
+          })
+          .catch((err) => console.error("Error", err));
+      }, [data]);
   console.log(repo);
   console.log(data);
   
