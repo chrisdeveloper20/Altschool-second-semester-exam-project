@@ -5,7 +5,6 @@ const Repo = () => {
   const [repo, setRepo] = useState();
   let location = useLocation();
   let data = location.pathname.slice(7);
-  console.log( location.pathname);
   useEffect(() => {
     fetch(`https:api.github.com/repos/amarachi-nwokocha/${data}`)
       .then((res) => res.json())
