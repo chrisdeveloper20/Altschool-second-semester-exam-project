@@ -14,7 +14,7 @@ const Fetch = () => {
     <div className="container">
       <h2 className="head-text text-center underline text-2xl">Repositories</h2>{" "}
       <br></br>
-      <div className="grid mt-10 pb-20 grid-cols-1 ml-8 sm:ml-20 sm:gap-10 sm:grid-cols-2 md:grid-cols-3 md:gap-12  lg:grid-cols-3 gap-2  lg:ml-20 md:ml-10 ">
+      <div className="grid mt-10 pb-20 grid-cols-1 ml-12 sm:ml-20 sm:gap-10 sm:grid-cols-2 md:grid-cols-3 md:gap-12  lg:grid-cols-3 gap-2  lg:ml-20 md:ml-10 ">
         {data ? (
           data.map((i) => {
             return (
