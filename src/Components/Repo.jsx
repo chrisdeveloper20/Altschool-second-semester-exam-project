@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Repo = () => {
@@ -6,35 +6,42 @@ const Repo = () => {
   let location = useLocation();
   let data = location.pathname.slice(7);
   useEffect(() => {
-        fetch(`https://api.github.com/repos/amarachi-nwokocha/${data}`)
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error(`Failed to fetch data: ${res.status}`);
-            }
-            return res.json();
-          })
-          .then((res) => {
-            console.log("GitHub API response:", res); // Log for debugging
-            setRepo(res);
-          })
-          .catch((err) => console.error("Error", err));
-      }, [data]);
+    fetch(`https://api.github.com/repos/amarachi-nwokocha/${data}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((res) => {
+        console.log("GitHub API response:", res); // Log for debugging
+        setRepo(res);
+      })
+      .catch((err) => console.error("Error", err));
+  }, [data]);
   console.log(repo);
   console.log(data);
-  
+
   return (
     <div className="p-10 ">
-      <Link to="/" className="md:ml-8 card-btn rounded-sm p-2 text-white bg-blue-300 ">
+      <Link
+        to="/"
+        className="md:ml-8 card-btn rounded-sm p-2 text-white bg-blue-300 "
+      >
         Go back
       </Link>
       {repo ? (
         <div className="md:flex rounded-xl p-8">
           <div>
-            <img src={`${repo.owner.avatar_url}`} className="md:w-80 md:h-auto md:rounded-none rounded-full mx-auto" alt="" />
+            <img
+              src={`${repo.owner.avatar_url}`}
+              className="md:w-80 md:h-auto md:rounded-none rounded-full mx-auto"
+              alt=""
+            />
           </div>
 
           <div className=" md:p-8 md:h-58  text-left space-y-1">
-            <h1 className="text-4xl font-bold">{repo.name}</h1> 
+            <h1 className="text-4xl font-bold">{repo.name}</h1>
             <p>Description: {repo.description}</p>
             <p>Name of Repository: {repo.full_name}</p>
             <p>Visibility: {repo.visibility}</p>
@@ -44,13 +51,13 @@ const Repo = () => {
             <p>Open Issues: {repo.open_issues}</p>
 
             <div className="mt-10 flex flex-col md:flex-row">
-            <button className="rounded-sm p-2 text-white hover:bg-blue-800 bg-blue-300">
-              <a href={repo.homepage} target="_blank">Project Live link</a>
-            </button>
+              <button className=" p-2 text-white hover:bg-blue-800 rounded-xl bg-blue-300">
+                <a href={repo.homepage}>project live link</a>
+              </button>
 
-            <button className="rounded-sm mt-6 md:mt-0 p-2 text-white hover:bg-blue-800 bg-blue-300 md:mx-7">
-              <a href={repo.git_url} target="_blank">Repository Link </a>
-            </button>
+              <button className=" mt-6 md:mt-0 p-2  rounded-xl hover:bg-blue-800 bg-blue-300 md:mx-7">
+               <a href={repo.git_url} target="_blank" rel="noopener noreferrer"> Repository link</a>
+              </button>
             </div>
           </div>
         </div>

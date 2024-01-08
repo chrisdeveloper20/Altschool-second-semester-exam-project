@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Fetch = () => {
   const [data, setData] = useState();
   useEffect(() => {
+
     fetch("https://api.github.com/users/amarachi-nwokocha/repos?page=2")
       .then((res) => res.json())
       .then((res) => setData(res));
