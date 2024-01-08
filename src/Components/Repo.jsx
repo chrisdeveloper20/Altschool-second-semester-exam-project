@@ -51,13 +51,13 @@ const Repo = () => {
             <p>Open Issues: {repo.open_issues}</p>
 
             <div className="mt-10 flex flex-col md:flex-row">
-              <button className=" p-2 text-white hover:bg-blue-800 rounded-xl bg-blue-300">
-                <a href={repo.homepage}>project live link</a>
-              </button>
+            <button className="rounded-sm p-2 text-white hover:bg-blue-800 bg-blue-300">
+              <a href={repo.homepage} target="_blank">Project Live link</a>
+            </button>
 
-              <button className=" mt-6 md:mt-0 p-2  rounded-xl hover:bg-blue-800 bg-blue-300 md:mx-7">
-               <a href={repo.git_url} target="_blank" rel="noopener noreferrer"> Repository link</a>
-              </button>
+            <button className="rounded-sm mt-6 md:mt-0 p-2 text-white hover:bg-blue-800 bg-blue-300 md:mx-7">
+              <a href={repo.git_url} target="_blank">Repository Link </a>
+            </button>
             </div>
           </div>
         </div>
